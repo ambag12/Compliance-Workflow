@@ -1,0 +1,52 @@
+routing_rules:
+  - match:
+      regex:  ".*(child labour|domestic|abuse|labour|restrain|harassment|DUI).*"
+    route_to: civil_risk
+    reason: "Belongs to Civil Court"
+
+  - match:
+      regex: ".*(murder|rape|molest|sexual assault|kidnap|rob).*"
+    route_to: high_risk
+    reason: "Belongs to High Court"
+    
+  - match:
+      regex:  ".*(divorce|custody|alimony|termination of parental rights|maintenance|name changes|juvenile|domestic partnership|child protective proceedings|property|child support|adoption).*"
+    route_to: civil_risk
+    reason: "Belongs to Civil Court"
+
+
+default_route: default_function
+
+family_court:
+  sop:
+    - "Step 1: Complete prescribed forms (e.g. Divorce Petition, Children’s Form) and file them at the Family Court Registry"
+    - "Step 2: Pay the required filing fee and obtain your case number"
+    - "Step 3: Have the sealed petition served on the respondent by a third party or registered post"
+    - "Step 4: Apply to the Registrar for directions and file any pre‑hearing documents (e.g. Children’s Form, statement of issues)"
+    - "Step 5: Attend the First Appointment (and Children’s Appointment if children’s issues are disputed) and exchange evidence"
+    - "Step 6: Attend the substantive hearing and receive judgment"
+    - "Step 7: If dissatisfied, file a Notice of Appeal or seek leave to appeal to the Court of Appeal"
+
+civil_court:
+  sop:
+    - "Step 1: File a Writ of Summons (Form 1) or Originating Summons at the District Court Registry and pay the prescribed fee"
+    - "Step 2: Serve the writ/summons on the defendant and file an Acknowledgement of Service (Form 14)"
+    - "Step 3: Defendant files a Defence (Form 12) or written statement within 28 days (and counterclaim if any)"
+    - "Step 4: Attend the directions hearing / Case Management Conference to set timetables"
+    - "Step 5: Conduct discovery and exchange documents as ordered"
+    - "Step 6: Attend the trial hearing before a Judge (or Master)"
+    - "Step 7: If appealing, file a Notice of Appeal and obtain leave (where required) within the prescribed time"
+
+high_court:
+  sop:
+    - "Step 1: File a Writ of Summons (Form86) or Originating Summons at the CFI Registry (or file a Notice of Appeal Form XI at the Appeals Registry for appellate matters)"
+    - "Step 2: Serve the filed documents on all relevant parties"
+    - "Step 3: Attend the pre‑trial conference or case management directions (including any chambers applications)"
+    - "Step 4: Exchange evidence, prepare hearing bundles or appeal records"
+    - "Step 5: Attend the hearing (trial or appeal) before the Judge or panel"
+    - "Step 6: Receive judgment; if further appeal is needed, file the appropriate Notice (e.g. for the Court of Final Appeal)"
+    
+record_lookup:
+  file: "records.csv"
+  key_column: "Convict Name"
+  include_when_found: true
