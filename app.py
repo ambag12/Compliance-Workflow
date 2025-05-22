@@ -21,10 +21,6 @@ load_dotenv()
 if not all([os.getenv("COHERE_API_KEY"), os.getenv("TAVILY_API_KEY"), os.getenv("PINECONE_API_KEY")]):
     st.warning("Some API keys are missing from the .env file.")
 
-os.environ["COHERE_API_KEY"] = "kj6qTQTrdGKlviXr2N7pVCHMxI3Z1dG2avL1mqwq"
-os.environ["TAVILY_API_KEY"] = "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"
-os.environ["PINECONE_API_KEY"] = "pcsk_6L8ZmY_fh3AkwzUNVg87rneaKU2HgoApGK91wJJoVoYtX4HSdnKdxaWpuktSyjkApsBeZ"
-
 llm = ChatCohere(
     model="command-r",
     api_key=os.environ.get("COHERE_API_KEY", ""),
