@@ -344,7 +344,7 @@ task_deep = Task(
   agent=agent_deep
 )
 
-cfg_folder=Path(r"C:\Users\hussa\FastAPI\AGENTIC RAG\Compliance&Workflow")
+cfg_folder=Path(__file__).parent
 # --- Streamlit UI ---
 st.set_page_config(page_title="Legal Compliance Chatbot")
 st.title("Legal Compliance Chatbot")
