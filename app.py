@@ -359,7 +359,11 @@ if mode == "With Document":
 
 # Sidebar: compliance YAML
 yamls = list(cfg_folder.glob("*.yaml"))
-sel_yaml = st.sidebar.selectbox("Select compliance YAML", [p.name for p in yamls])
+yaml_names = [p.name for p in yamls]
+if not yaml_names:
+    st.error("No YAML files found in the directory.")
+    st.stop()
+sel_yaml = st.sidebar.selectbox("Select compliance YAML", yaml_names)
 cfg = yaml.safe_load((cfg_folder / sel_yaml).open(encoding="utf-8"))
 
 # User inputs
