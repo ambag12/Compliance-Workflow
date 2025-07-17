@@ -1,3 +1,10 @@
+import sys
+try:
+    import pysqlite3 as sqlite3
+    sys.modules["sqlite3"] = sqlite3
+except ImportError:
+    # If pysqlite3 isn't installed, we'll fallback to system sqlite3 (might still error)
+    pass
 import os
 import re
 import json
